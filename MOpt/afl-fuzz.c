@@ -6729,8 +6729,8 @@ havoc_stage:
 
         // Modified for SIGUSR2 by ZYP
         if(need_sync_fuzzer==1 && !stop_soon && sync_id){
-          sync_fuzzers(saved_argv);
-          printf("extra sync_fuzzers finished \r\n");
+            sync_fuzzers(saved_argv);
+            printf("extra sync_fuzzers finished \r\n");
         }
 
 
@@ -10889,6 +10889,7 @@ static void handle_skipreq(int sig) {
 static void handle_sigusr2(int sig)
 {
 	printf("handle_sigusr2 called \r\n");
+	write_stats_file(0,0,0);
 	need_sync_fuzzer = 1;
 }
 
